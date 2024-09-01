@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>city should be selected accordingly states</title>
+    <style>
+        body{
+            background-image: url(https://th.bing.com/th/id/R.3595acfc78a454fc313dd85ca931f3e5?rik=bNBjarMM7nIwTg&riu=http%3a%2f%2fsfwallpaper.com%2fimages%2fcollege-backgrounds-6.jpg&ehk=Od5yP8yUz5m17ZDtzPuZcQTldeKXNrfHG26bC%2b9%2fpk0%3d&risl=&pid=ImgRaw&r=0);
+            background-repeat: no-repeat;
+            background-position: center;
+            height:100vh;
+            background-size: cover;
+            margin:0px;
+            padding:0px;
+            box-sizing:border-box;
+        }
+        header{
+            background-color: black;
+        }
+        #container{
+            background-color: rgba(15, 11, 11, 0.402);
+            border-radius: 10px;
+            color:bisque;
+            width:220px;
+            height:450px;
+            padding:10px;
+            font-weight: 2rem;
+            font-style: italic;
+            position:relative;
+            top:40px;
+            bottom:25px;
+            left:40px;
+            box-shadow: 3px 3px 5px 2px rgb(239, 166, 114),-3px -3px 5px 2px rgb(239, 166, 114);
+            
+        }
+        select{
+        width:106%;
+        padding:4px;
+        border-radius: 5px;
+        border:none;
+        font-style: italic;
+        }
+         h2{
+            text-align: center;
+         }
+        #box>input{
+            width:100%;
+            padding:5px;
+            border: none;
+            border-radius: 5px;
+         }
+         button{
+            width:100%;
+            border:none;
+            padding:5px;
+            border-radius: 5px;
+            color:white;
+            font-style: italic;
+            background-color: black;
+         }
+         form{
+            padding:20px;
+         }
+         nav{
+            background-color:rgba(2, 8, 8, 0.802);          
+            color:bisque;
+            display:flex;
+            justify-content: space-between;
+            padding: 15px
+
+         }
+         #span{
+            display:flex;
+            gap:40px;
+            font-style: italic;
+         }
+        #sk{
+            font-weight: 1rem;
+            font-style: italic;
+        }
+        .search{
+            background-color: white;
+            border-radius: 20px;
+            padding: 1px;
+            width:200px;
+
+        }
+        #search1{
+            border:none;
+            font-style: italic;
+            width:140px;
+            border-radius: 20px;
+            text-transform: lowercase;
+            position:relative;
+            bottom:4px;
+            left:4px;
+        
+        }
+        .icon{
+            color:black;
+            position:relative;
+            top:2px;
+            left:4px;
+        }
+    </style>
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+    <nav>       
+        <div id="sk">SK UNIVERSITY</div>
+        <div class="search">
+            <span class="icon material-symbols-outlined">
+                search
+                </span>
+            <input type="search" id="search1" placeholder="search">
+        </div>
+    
+        <div id="span">
+            <span>About</span>
+            <span>Achivements</span>
+            <span>Branches</span>
+        </div>
+    </nav>
+ 
+    <div id="container">
+        <h2>Registration form</h2>
+
+    <form action="">
+     <div id="box">       
+    <lable for="name">First Name:</lable><br>
+    <input type="text" id="name"><br>
+
+    
+    <lable for="dob">Date of birth:</lable><br>
+    <input type="date" id="dob"><br>
+
+    <lable for="age">Your Age:</lable><br>
+    <input type="number" id="age"><br>
+    
+    
+    <lable for="email">Email ID:</lable><br>
+    <input type="email" id="email" value=" "><br>
+
+    <lable for="password">Password:</lable><br>
+    <input type="password" id="password"><br>
+    </div>
+
+    <lable for="gender">Gender:</lable>
+    <input type="radio"  name="gender">male
+    <input type="radio"  name="gender">female<br>
+
+    <!-- /<input type="radio"  name="gender">others<br><br> -->
+    
+
+    <!-- <lable for="Hobbies">Hobbies:</lable><br> -->
+    <!-- <input type="checkbox"  name="Hobbies">Travelling
+    <input type="checkbox"  name="Hobbies">Romming -->
+    <!-- <input type="checkbox"  name="Hobbies">Reading books
+    <input type="checkbox"  name="Hobbies">Playing<br><br> -->
+    
+    <!-- <lable for="text">About you:</lable><br>
+    <textarea name="" id="text" cols="20" rows="5"></textarea><br> -->
+
+    <!-- <lable for="email">Select country:</lable> -->
+     
+    <select name="" id="selectcountry">
+        <option value="">---select Country---</option>
+    </select>
+    <br><br>
+    
+    <select name="" id="selectstates">
+        <option value="">---select state---</option>
+    </select>
+    <br>
+
+    <br>
+    <button id="submit">submit</button>
+    </form>
+    </div>
+    <script>
+        const countries=["INDIA","USA","CANADA","GERMANY"];
+        const states=[
+            ["Andhra pradesh","Karnataka","Tamilnadu"],
+            ["Albama","Alaska","Clifornia"],
+            ["Albert","Columbia","Manitoba"],
+            ["Berlin","Hamburg","Hesse"]
+        ]
+        const country=document.getElementById("selectcountry");
+        const state=document.getElementById("selectstates");
+
+        for(let i=0;i<countries.length;i++){
+            var element=countries[i];
+            var option=document.createElement("option");
+            option.innerText=element;
+            country.appendChild(option);
+        }
+        function city(event){
+            const selectedcountry=(event.target.value);
+            const stateindex=countries.indexOf(selectedcountry);
+            const cityname=states[stateindex];
+            console.log(cityname)
+            for (let i=0;i<cityname.length;i++){
+                var option=document.createElement("option");
+                var element=cityname[i]
+
+                option.innerText=element;
+                state.appendChild(option);
+            }     
+        }
+        country.addEventListener("change",city);
+    </script>
+</body>
+</html>
